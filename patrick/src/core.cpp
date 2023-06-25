@@ -6,7 +6,7 @@ namespace patrick
 {
 
 template <typename... T>
-[[noreturn]] inline void
+inline void
 unimplemented ([[maybe_unused]] T &&...args)
 {
   assert (0);
