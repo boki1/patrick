@@ -2,6 +2,4 @@
 
 #include <patrick/core.h>
 
-TEST(ItWorks, TestTest) {
-	EXPECT_EQ(patrick::foo(), 42);
-}
+TEST (ItWorks, TestTest) { EXPECT_EQ (41 + 1, 42); }

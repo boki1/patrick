@@ -10,9 +10,12 @@ endif()
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-conan_cmake_configure(REQUIRES gtest/1.13.0
-					  OPTIONS gtest:shared=False
-                      GENERATORS cmake_find_package)
+conan_cmake_configure(
+    REQUIRES
+        gtest/1.13.0
+        eigen/3.4.0
+    OPTIONS gtest:shared=False
+    GENERATORS cmake_find_package)
 
 conan_cmake_autodetect(settings)
 

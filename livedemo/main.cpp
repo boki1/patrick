@@ -2,8 +2,9 @@
 
 #include <patrick/core.h>
 
-int main() {
-    std::cout << "Greetings!\n";
-	std::cout << patrick::foo() << '\n';
-    return 0;
+int
+main ()
+{
+  std::cout << "Greetings!\n";
+  return 0;
 }
