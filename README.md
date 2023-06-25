@@ -1,6 +1,6 @@
 ## Patrick - library for using linear codes
 
-[![dev-status](https://img.shields.io/badge/status-in_progress-green)](https://img.shields.io/badge/status-in_progress-green)
+[![dev-status](https://img.shields.io/badge/dev_status-in_progress-green)](https://img.shields.io/badge/dev_status-in_progress-green)
 [![build-and-tests](https://github.com/boki1/patrick/actions/workflows/ci.yml/badge.svg)](https://github.com/boki1/patrick/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
