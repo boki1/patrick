@@ -17,9 +17,11 @@ $ ./build.sh --output=cmake-build-debug --configure=yes
 $ ./cmake-build-debug/app/livedemo
 
 // Produce documentation and open it in the browser
-$ doxygen docs/Doxygen
+$ doxygen docs/Doxyfile
 $ xdg-open docs/build/html/index.html
 ```
+
+**Documentation** - [_Latest_](https://boki1.github.io/patrick)
 
 ---------------
 
