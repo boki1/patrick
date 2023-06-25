@@ -3,12 +3,13 @@
 #ifndef PATRICK_CORE_H_INCLUDED
 #define PATRICK_CORE_H_INCLUDED
 
+#include <cstdint>
 #include <optional>
 #include <stdexcept>
 #include <string>
 #include <utility>
 
-#include <eigen3/Eigen/Dense>
+#include <Eigen/Dense>
 
 #include <fmt/core.h>
 
