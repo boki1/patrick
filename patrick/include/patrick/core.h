@@ -3,13 +3,14 @@
 #ifndef PATRICK_CORE_H_INCLUDED
 #define PATRICK_CORE_H_INCLUDED
 
-#include <format>
 #include <optional>
 #include <stdexcept>
 #include <string>
 #include <utility>
 
 #include <eigen3/Eigen/Dense>
+
+#include <fmt/core.h>
 
 namespace patrick
 {
@@ -23,7 +24,7 @@ class linearcode_exception : public std::runtime_error
 {
 public:
   explicit linearcode_exception (const std::string &msg)
-      : std::runtime_error{ std::format ("patrick: {}", msg) }
+      : std::runtime_error{ fmt::format ("patrick: {}", msg) }
   {
   }
 };
@@ -178,7 +179,7 @@ public:
     /// actually exhaust all values), then \ref decode has been called
     /// in a semantically correct way such as
     /// `decode<static_cast<[...]>(42)>([...]);`
-    throw linearcode_exception{ std::format (
+    throw linearcode_exception{ fmt::format (
         "Invalid decoding strategy '{}' used with linear code.",
         static_cast<std::uint8_t> (Strategy)) };
   }

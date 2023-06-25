@@ -14,6 +14,7 @@ conan_cmake_configure(
     REQUIRES
         gtest/1.13.0
         eigen/3.4.0
+        fmt/10.0.0
     OPTIONS gtest:shared=False
     GENERATORS cmake_find_package)
 
