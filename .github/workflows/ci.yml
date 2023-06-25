@@ -1,0 +1,38 @@
+name: build-and-tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    env:
+      BUILD_TYPE: RelWithDebInfo
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-20.04]
+        cxx: [g++-11]
+        cc: [gcc-11]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup dependencies
+        run: |
+             sudo apt update
+             sudo apt install gcc-11 g++-11 ninja-build
+             pip3 install conan --upgrade
+
+      - name: Build
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run: ./build/abc.sh build
+
+      - name: Test
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run: ./build/abc.sh test
