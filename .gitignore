@@ -34,3 +34,5 @@
 Testing/
 cmake-build-debug/
 compile_commands.json
+.cache/
+CMakeLists.txt.user

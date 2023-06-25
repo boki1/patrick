@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <patrick/core.h>
+
 TEST(ItWorks, TestTest) {
-	EXPECT_EQ(1 + 1, 2);
+	EXPECT_EQ(patrick::foo(), 42);
 }
