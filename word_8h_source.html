@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('word_8h_source.html',''); initResizabl
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    vec.resize (1, num_bits);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; num_bits; ++i)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      vec (i) = word_as_num &amp; (1 &lt;&lt; i);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      vec (i) = (word_as_num &amp; (1 &lt;&lt; i)) &gt; 0;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structpatrick_1_1details_1_1word.html#a4015d04302287441c5714f828cc6ea6d">   89</a></span>&#160;  <span class="keyword">explicit</span> <span class="keyword">operator</span> Eigen::RowVectorXi () { <span class="keywordflow">return</span> vec; }</div>

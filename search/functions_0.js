@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['decode_29',['decode',['../classpatrick_1_1linearcode.html#a96fc72a40099d7f7b288df980d9d7489',1,'patrick::linearcode']]],
-  ['dual_30',['dual',['../classpatrick_1_1linearcode.html#a197f3be37b7f8c9ebded76341ef1cac7',1,'patrick::linearcode']]]
+  ['codewords_30',['codewords',['../classpatrick_1_1linearcode.html#a7ee7dc5daeb7403f55c25a01a3638ee2',1,'patrick::linearcode']]]
 ];

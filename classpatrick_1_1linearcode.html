@@ -144,6 +144,8 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a197f3be37b7f8c9ebded76341ef1cac7">dual</a> () const noexcept</td></tr>
 <tr class="memdesc:a197f3be37b7f8c9ebded76341ef1cac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">New <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> instance that stores the dual code of the current one. <br /></td></tr>
 <tr class="separator:a197f3be37b7f8c9ebded76341ef1cac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee7dc5daeb7403f55c25a01a3638ee2"><td class="memItemLeft" align="right" valign="top">const std::optional&lt; std::vector&lt; <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a7ee7dc5daeb7403f55c25a01a3638ee2">codewords</a> () const noexcept</td></tr>
+<tr class="separator:a7ee7dc5daeb7403f55c25a01a3638ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5259bfcfdc2f31db87207061a01fc0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#ad5259bfcfdc2f31db87207061a01fc0a">encode</a> (const <a class="el" href="structpatrick_1_1details_1_1word.html">infoword</a> &amp;) const</td></tr>
 <tr class="memdesc:ad5259bfcfdc2f31db87207061a01fc0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an information word by adding redundency bits.  <a href="classpatrick_1_1linearcode.html#ad5259bfcfdc2f31db87207061a01fc0a">More...</a><br /></td></tr>
 <tr class="separator:ad5259bfcfdc2f31db87207061a01fc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +167,32 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Represents a linear <img class="formulaInl" alt="$[n, k, d]$" src="form_0.png"/> code. </p>
 <p>Linear code <img class="formulaInl" alt="$C$" src="form_1.png"/> is usually defined as a subspace of the linear space <img class="formulaInl" alt="$F^{n}_{2}$" src="form_2.png"/>. If its dimension is <img class="formulaInl" alt="$k$" src="form_3.png"/>, then <img class="formulaInl" alt="$C$" src="form_1.png"/> is said to be a <img class="formulaInl" alt="$[n, k]$" src="form_4.png"/> code. The third parameter <img class="formulaInl" alt="$d$" src="form_5.png"/> denotes the minimum distance of the code. In the special case of linear codes, that is usually defined as the minimum weight of a non-zero vector of <img class="formulaInl" alt="$C$" src="form_1.png"/>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7ee7dc5daeb7403f55c25a01a3638ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee7dc5daeb7403f55c25a01a3638ee2">&#9670;&nbsp;</a></span>codewords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::optional&lt;std::vector&lt;<a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a>&gt; &gt;&amp; patrick::linearcode::codewords </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Operations </p>
+
+</div>
+</div>
 <a id="a96fc72a40099d7f7b288df980d9d7489"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96fc72a40099d7f7b288df980d9d7489">&#9670;&nbsp;</a></span>decode()</h2>
 
@@ -226,7 +254,7 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 </div><div class="memdoc">
 
 <p>Encodes an information word by adding redundency bits. </p>
-<p>Operations </p><dl class="section return"><dt>Returns</dt><dd>The encoded code word. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The encoded code word. </dd></dl>
 
 </div>
 </div>
