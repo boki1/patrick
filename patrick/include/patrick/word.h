@@ -3,9 +3,12 @@
 #ifndef PATRICK_WORD_H_INCLUDED
 #define PATRICK_WORD_H_INCLUDED
 
+#include <algorithm>
 #include <bitset>
 #include <stdexcept>
 #include <vector>
+
+#include <Eigen/Core>
 
 #include <fmt/core.h>
 
@@ -33,35 +36,75 @@ struct infoword_tag
 
 template <typename T> struct word
 {
-  explicit word (const std::vector<bool> &t_data) : data{ t_data } {}
+  ///
+  /// Constructors
+  ///
 
-  template <typename U>
-  explicit word (const word<U> &other) : data{ other.data }
+  explicit word (const Eigen::RowVectorXi &t_vec) : vec{ t_vec } {}
+
+  ///
+  /// \brief Construct a word from a different tag. This is the ctor used from
+  /// coversion between a \ref codeword and an \ref infoword.
+  ///
+  template <typename U> explicit word (const word<U> &other) : vec{ other.vec }
   {
   }
 
+  ///
+  /// \brief Construct a word from a string which contains only '1' and '0'.
+  ///
   explicit word (const std::string &bitstr)
   {
-    data.reserve (bitstr.size ());
+    const std::size_t cols = bitstr.size ();
+    vec.resize (1, cols);
+
+    std::size_t index = 0;
     for (const char b : bitstr)
       if (b == '0')
-        data.push_back (false);
+        vec (index++) = 0;
       else if (b == '1')
-        data.push_back (true);
+        vec (index++) = 1;
       else
         throw word_exception{ "bad input string" };
   }
 
-  explicit operator std::vector<bool> () { return data; }
+  ///
+  /// \brief Construct a word from a number (may as well be a bit literal such
+  /// as 0b...).
+  /// \param word_as_num The number.
+  /// \param num_bits This parameters exist because there could be
+  /// an unlimited amount of zeroes in the front of the number.
+  ///
+  word (unsigned long long word_as_num, std::size_t num_bits)
+  {
+    vec.resize (1, num_bits);
 
+    for (std::size_t i = 0; i < num_bits; ++i)
+      vec (i) = word_as_num & (1 << i);
+  }
+
+  ///
+  /// \brief Make word<T> castable to the row vector type in Eigen.
+  ///
+  explicit operator Eigen::RowVectorXi () { return vec; }
+
+  ///
+  /// Comparison and ordering
+  ///
   [[nodiscard]] bool
   operator== (const word &rhs) const noexcept
   {
-    return data == rhs.data;
+    return vec == rhs.vec;
   }
   std::strong_ordering operator<=> (const word &) const noexcept = default;
 
-  std::vector<bool> data;
+  [[nodiscard]] std::size_t
+  weight () const noexcept
+  {
+    return std::count (std::cbegin (vec), std::cend (vec), 1);
+  }
+
+  Eigen::RowVectorXi vec;
 };
 
 } // namespace details
@@ -82,9 +125,10 @@ struct fmt::formatter<patrick::details::word<Tag> >
   format (const word_type &w, FormatContext &ctx)
   {
     std::string bitstr;
-    bitstr.reserve (w.data.size ());
-    for (const auto &b : w.data)
-      bitstr.push_back ((b ? '1' : '0'));
+    bitstr.resize (w.vec.cols ());
+    std::size_t index = 0;
+    for (const auto &b : w.vec)
+      bitstr[index++] = b ? '1' : '0';
     return format_to (ctx.out (), "{}", bitstr);
   }
 };

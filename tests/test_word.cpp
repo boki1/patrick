@@ -19,7 +19,7 @@ concept equality_comparable = requires (T a, U b)
 };
 // clang-format on
 
-TEST (Patrick, TestWordConstruction)
+TEST (TestPatrick, TestWordConstruction)
 {
   codeword c1{ "0101" };
   codeword c2{ "0101" };
@@ -45,8 +45,4 @@ TEST (Patrick, TestWordConstruction)
                  "infoword is convertible to codeword");
   static_assert (!equality_comparable<codeword, infoword>,
                  "codeword is convertible to infoword");
-
-  codeword c4{ i1 };
-  std::vector<bool> expected_data{ false, true, false, true };
-  EXPECT_EQ (c4.data, a);
 }
