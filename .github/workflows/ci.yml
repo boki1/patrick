@@ -38,4 +38,4 @@ jobs:
       - name: Test
         working-directory: ${{github.workspace}}
         shell: bash
-        run: ctest
+        run: ctest --rerun-failed --output-on-failure
