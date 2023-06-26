@@ -148,10 +148,10 @@ public:
   /// Operations
   ///
 
-  const auto &
+  const std::optional<std::vector<codeword> > &
   codewords () const noexcept
   {
-    return *m_cached_codewords;
+    return m_cached_codewords;
   }
   ///
   /// \brief Encodes an information word by adding redundency bits.

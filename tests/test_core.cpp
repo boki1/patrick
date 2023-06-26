@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 
 #include <Eigen/Dense>
+#include <fmt/os.h>
+#include <fmt/ostream.h>
 
 #include <patrick/core.h>
 
@@ -37,6 +39,24 @@ struct Hamming84Test : public ::testing::Test
 
   linearcode code = linearcode::from_generator (G);
 };
+
+#ifdef DEBUG
+TEST_F (Hamming74Test, TestCachedCodewords)
+{
+  auto out = fmt::output_file ("codewords_of_hamming74.txt");
+  int i = 0;
+  for (const auto &c : *code.codewords ())
+    out.print ("{}:\t{}\n", i++, c);
+}
+
+TEST_F (Hamming84Test, TestCachedCodewords)
+{
+  auto out = fmt::output_file ("codewords_of_hamming84.txt");
+  int i = 0;
+  for (const auto &c : *code.codewords ())
+    out.print ("{}:\t{}\n", i++, c);
+}
+#endif
 
 TEST_F (Hamming74Test, TestEncoding)
 {
