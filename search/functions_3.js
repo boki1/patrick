@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['properties_33',['properties',['../classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222',1,'patrick::linearcode']]]
+  ['operator_3d_3d_35',['operator==',['../structpatrick_1_1details_1_1word.html#af0c5836d9cafed6b516b823453d5c3f3',1,'patrick::details::word']]],
+  ['rowvectorxi_36',['RowVectorXi',['../structpatrick_1_1details_1_1word.html#a4015d04302287441c5714f828cc6ea6d',1,'patrick::details::word']]]
 ];

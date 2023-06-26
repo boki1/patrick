@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['word_14',['word',['../structpatrick_1_1details_1_1word.html',1,'patrick::details']]],
-  ['word_2eh_15',['word.h',['../word_8h.html',1,'']]],
-  ['word_5fexception_16',['word_exception',['../classpatrick_1_1details_1_1word__exception.html',1,'patrick::details']]]
+  ['properties_14',['properties',['../classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222',1,'patrick::linearcode']]],
+  ['properties_5ftype_15',['properties_type',['../structpatrick_1_1linearcode_1_1properties__type.html',1,'patrick::linearcode']]]
 ];

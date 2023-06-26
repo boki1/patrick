@@ -154,10 +154,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a036f23655c1544551cae607bc912dbc9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a036f23655c1544551cae607bc912dbc9">from_parity_equations</a> (const Eigen::MatrixXd &amp;parity_equations)</td></tr>
-<tr class="separator:a036f23655c1544551cae607bc912dbc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ac63ee4511cfc7ab0ca3c5d6402acf5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a2ac63ee4511cfc7ab0ca3c5d6402acf5">from_generator</a> (const Eigen::MatrixXd &amp;generator_matrix)</td></tr>
-<tr class="separator:a2ac63ee4511cfc7ab0ca3c5d6402acf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab5a7e05ee956e8e16812063c005138"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#adab5a7e05ee956e8e16812063c005138">from_parity_equations</a> (const Eigen::MatrixXi &amp;parity_equations)</td></tr>
+<tr class="separator:adab5a7e05ee956e8e16812063c005138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f3921778ad5dd63ffbc0f092ddc4fcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a8f3921778ad5dd63ffbc0f092ddc4fcc">from_generator</a> (const Eigen::MatrixXi &amp;generator_matrix)</td></tr>
+<tr class="separator:a8f3921778ad5dd63ffbc0f092ddc4fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a43f6744155f71c4ad44263bc6161ab"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a1a43f6744155f71c4ad44263bc6161ab">from_dual</a> (const <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> &amp;code)</td></tr>
 <tr class="separator:a1a43f6744155f71c4ad44263bc6161ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -263,8 +263,8 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 
 </div>
 </div>
-<a id="a2ac63ee4511cfc7ab0ca3c5d6402acf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ac63ee4511cfc7ab0ca3c5d6402acf5">&#9670;&nbsp;</a></span>from_generator()</h2>
+<a id="a8f3921778ad5dd63ffbc0f092ddc4fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f3921778ad5dd63ffbc0f092ddc4fcc">&#9670;&nbsp;</a></span>from_generator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,7 +275,7 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
         <tr>
           <td class="memname"><a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> patrick::linearcode::from_generator </td>
           <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramtype">const Eigen::MatrixXi &amp;&#160;</td>
           <td class="paramname"><em>generator_matrix</em></td><td>)</td>
           <td></td>
         </tr>
@@ -296,8 +296,8 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 
 </div>
 </div>
-<a id="a036f23655c1544551cae607bc912dbc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a036f23655c1544551cae607bc912dbc9">&#9670;&nbsp;</a></span>from_parity_equations()</h2>
+<a id="adab5a7e05ee956e8e16812063c005138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab5a7e05ee956e8e16812063c005138">&#9670;&nbsp;</a></span>from_parity_equations()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,9 +306,9 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> patrick::linearcode::from_parity_equations </td>
+          <td class="memname"><a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> patrick::linearcode::from_parity_equations </td>
           <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
+          <td class="paramtype">const Eigen::MatrixXi &amp;&#160;</td>
           <td class="paramname"><em>parity_equations</em></td><td>)</td>
           <td></td>
         </tr>
@@ -325,7 +325,8 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Constructed <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> instance which is described by the provided equations. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Constructed <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> instance which is described by the provided equations.</dd></dl>
+<p>Constructors </p>
 
 </div>
 </div>
