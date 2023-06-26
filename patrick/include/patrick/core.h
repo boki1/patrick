@@ -10,10 +10,10 @@
 #include <utility>
 
 #include <Eigen/Dense>
-
 #include <fmt/core.h>
 
 #include <patrick/word.h>
+
 namespace patrick
 {
 
@@ -47,14 +47,13 @@ public:
   /// Related types
   ///
 
-
   struct properties_type
   {
-    std::size_t word_size;
-    std::size_t basis_size;
-    std::size_t min_distance;
-    std::size_t max_errors_detect;
-    std::size_t max_errors_correct;
+    std::size_t word_size{ 0 };
+    std::size_t basis_size{ 0 };
+    std::size_t min_distance{ 0 };
+    std::size_t max_errors_detect{ 0 };
+    std::size_t max_errors_correct{ 0 };
   };
 
   ///
@@ -68,7 +67,7 @@ public:
   /// \ref linearcode instance which is described by the provided equations.
   ///
   [[nodiscard]] [[maybe_unused]] static linearcode
-  from_parity_equations (const Eigen::MatrixXd &parity_equations);
+  from_parity_equations (const Eigen::MatrixXi &parity_equations);
 
   ///
   /// \param generator_matrix A \f$kxn\f$ matrix whose rows are the basis
@@ -77,7 +76,7 @@ public:
   /// the provided generator.
   ///
   [[nodiscard]] static linearcode
-  from_generator (const Eigen::MatrixXd &generator_matrix);
+  from_generator (const Eigen::MatrixXi &generator_matrix);
 
   ///
   /// \param dual A linear code
@@ -95,7 +94,7 @@ private:
   /// my using the named ctors \a from_*(). \param generator_matrix The linear
   /// code represented by a generator matrix.
   ///
-  linearcode (const Eigen::MatrixXd &generator_matrix);
+  explicit linearcode (const Eigen::MatrixXi &generator_matrix);
 
 public:
   ///
@@ -118,11 +117,9 @@ private:
   ///
   /// \param generator_matrix Representation of the linear code that is being
   /// inspected.
-  /// \return A populated \ref properties instances.
   /// \note This is called in the ctor of \ref linearcode.
   ///
-  static properties_type
-  evaluate_properties_of (const Eigen::MatrixXd &generator_matrix);
+  void evaluate_properties_of ();
 
   ///
   /// \brief Use method for decoding that is based on the
@@ -140,11 +137,22 @@ private:
   [[nodiscard]] std::optional<infoword>
   decode_with_syndromes (const codeword &cword) const;
 
+  ///
+  /// \brief Exhausts all valid codewords and stores them in \ref
+  /// m_cached_codewords.
+  ///
+  void prepare_codeword_cache ();
+
 public:
   ///
   /// Operations
   ///
 
+  const auto &
+  codewords () const noexcept
+  {
+    return *m_cached_codewords;
+  }
   ///
   /// \brief Encodes an information word by adding redundency bits.
   /// \return The encoded code word.
@@ -189,13 +197,15 @@ private:
   /// \brief The internal representation of a linear code is based
   /// on a generator matrix.
   ///
-  const Eigen::MatrixXd m_generator;
+  const Eigen::MatrixXi m_generator;
 
   ///
   /// \brief The basic properties of the linear code that is
   /// represented by the instance.
   ///
-  const properties_type m_properties;
+  properties_type m_properties;
+
+  std::optional<std::vector<codeword> > m_cached_codewords;
 };
 
 } // namespace patrick

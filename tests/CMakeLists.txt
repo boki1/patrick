@@ -18,3 +18,4 @@ endfunction()
 
 add_unit_test(it_works test_it_works.cpp)
 add_unit_test(word test_word.cpp)
+add_unit_test(core test_core.cpp)

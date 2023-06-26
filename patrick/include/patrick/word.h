@@ -80,7 +80,7 @@ template <typename T> struct word
     vec.resize (1, num_bits);
 
     for (std::size_t i = 0; i < num_bits; ++i)
-      vec (i) = word_as_num & (1 << i);
+      vec (i) = (word_as_num & (1 << i)) > 0;
   }
 
   ///
