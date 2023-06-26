@@ -56,7 +56,7 @@ linearcode::dual () const noexcept
   unimplemented ();
 }
 
-[[nodiscard]] [[maybe_unused]] linearcode::codeword
+[[nodiscard]] [[maybe_unused]] codeword
 linearcode::encode (const infoword &iword) const
 {
   unimplemented (iword);
@@ -66,13 +66,13 @@ linearcode::encode (const infoword &iword) const
 /// Decoding
 ///
 
-[[nodiscard]] std::optional<linearcode::infoword>
+[[nodiscard]] std::optional<infoword>
 linearcode::decode_with_slepian (const codeword &cword) const
 {
   unimplemented (cword);
 }
 
-[[nodiscard]] std::optional<linearcode::infoword>
+[[nodiscard]] std::optional<infoword>
 linearcode::decode_with_syndromes (const codeword &cword) const
 {
   unimplemented (cword);

@@ -13,6 +13,7 @@
 
 #include <fmt/core.h>
 
+#include <patrick/word.h>
 namespace patrick
 {
 
@@ -46,8 +47,6 @@ public:
   /// Related types
   ///
 
-  using codeword = std::size_t;
-  using infoword = std::size_t;
 
   struct properties_type
   {
