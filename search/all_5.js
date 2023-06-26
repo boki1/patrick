@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['properties_10',['properties',['../classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222',1,'patrick::linearcode']]],
-  ['properties_5ftype_11',['properties_type',['../structpatrick_1_1linearcode_1_1properties__type.html',1,'patrick::linearcode']]]
+  ['linearcode_10',['linearcode',['../classpatrick_1_1linearcode.html',1,'patrick']]],
+  ['linearcode_5fexception_11',['linearcode_exception',['../classpatrick_1_1linearcode__exception.html',1,'patrick']]]
 ];

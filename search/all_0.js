@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['codeword_0',['codeword',['../classpatrick_1_1linearcode.html#a5cdce68b4d77878f6a1ffd4bf3c9ace9',1,'patrick::linearcode']]],
+  ['codeword_5ftag_0',['codeword_tag',['../structpatrick_1_1details_1_1codeword__tag.html',1,'patrick::details']]],
   ['core_2eh_1',['core.h',['../core_8h.html',1,'']]]
 ];
