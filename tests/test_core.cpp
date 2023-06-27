@@ -10,6 +10,7 @@ using namespace patrick;
 
 struct Hamming74Test : public ::testing::Test
 {
+  // Generator matrix
   static inline const Eigen::MatrixXi G = [] () {
     Eigen::MatrixXi G_{ 4, 7 };
     // clang-format off
@@ -19,6 +20,17 @@ struct Hamming74Test : public ::testing::Test
               0, 0, 0, 1, 1, 1, 1;
     // clang-format on
     return G_;
+  }();
+
+  // Parity matrix
+  static inline const Eigen::MatrixXi H = [] () {
+    Eigen::MatrixXi H{ 3, 7 };
+    // clang-format off
+        H << 0, 1, 1, 1, 1, 0, 0,
+			 1, 0, 1, 1, 0, 1, 0,
+			 1, 1, 0, 1, 0, 0, 1;
+    // clang-format on
+    return H;
   }();
 
   linearcode code = linearcode::from_generator (G);
@@ -98,4 +110,26 @@ TEST_F (Hamming84Test, TestProperties)
   EXPECT_EQ (props.min_distance, 4);
   EXPECT_EQ (props.max_errors_detect, 3);
   EXPECT_EQ (props.max_errors_correct, 1);
+}
+TEST_F (Hamming74Test, TestParityMatrix)
+{
+  const auto &parity_matrix = code.parity_matrix ();
+  EXPECT_EQ (parity_matrix, H);
+}
+
+TEST_F (Hamming74Test, TestSyndromesAndContains)
+{
+  assert (code.codewords ().has_value ());
+  for (const auto &c : *code.codewords ())
+    EXPECT_TRUE (code.contains (c));
+
+  codeword c1{ "0001101" };
+  auto s1 = code.syndrome_of (c1);
+  EXPECT_EQ (fmt::format ("{}", s1), "010");
+  EXPECT_FALSE (code.contains (c1));
+
+  codeword c2{ "1001100" };
+  auto s2 = code.syndrome_of (c2);
+  EXPECT_EQ (fmt::format ("{}", s2), "000");
+  EXPECT_TRUE (code.contains (c2));
 }
