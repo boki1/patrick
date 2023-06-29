@@ -49,11 +49,27 @@ public:
 
   struct properties_type
   {
+    std::string special_name{ "Linear" };
     std::size_t word_size{ 0 };
     std::size_t basis_size{ 0 };
     std::size_t min_distance{ 0 };
     std::size_t max_errors_detect{ 0 };
     std::size_t max_errors_correct{ 0 };
+  };
+
+  struct coset
+  {
+    codeword leader;
+    std::vector<codeword> columns;
+  };
+
+  ///
+  /// \brief Represents a result from the decoding strategy used.
+  ///
+  struct decoding_result
+  {
+    infoword iword;
+    codeword error;
   };
 
   ///
@@ -98,7 +114,7 @@ private:
 
 public:
   ///
-  /// Accessors
+  /// Observers
   ///
 
   [[nodiscard]] const properties_type &
@@ -108,10 +124,46 @@ public:
   }
 
   ///
-  /// \brief New \ref linearcode instance that stores the dual code of the
-  /// current one.
+  /// \brief Calculates the parity matrix for this code.
   ///
-  [[nodiscard]] linearcode dual () const noexcept;
+  const Eigen::MatrixXi &
+  parity_matrix () const
+  {
+    if (!m_lazy_parity_matrix.has_value ())
+      prepare_parity_matrix ();
+    // We either had it before or we just evaluated the parity matrix.
+    assert (m_lazy_parity_matrix);
+    return *m_lazy_parity_matrix;
+  }
+
+  ///
+  /// \brief Calculates the parity matrix for this code.
+  ///
+  const Eigen::MatrixXi &
+  generator_matrix () const
+  {
+    return m_generator;
+  }
+
+  const std::optional<std::vector<codeword> > &
+  codewords () const noexcept
+  {
+    if (!m_lazy_codewords.has_value ())
+      prepare_codewords ();
+    // We either had it before or we just evaluated it.
+    assert (m_lazy_codewords);
+    return m_lazy_codewords;
+  }
+
+  const std::optional<std::vector<coset> > &
+  slepian_table () const noexcept
+  {
+    if (!m_lazy_slepian_table.has_value ())
+      prepare_slepian_table ();
+    // We either had it before or we just evaluated it.
+    assert (m_lazy_slepian_table);
+    return m_lazy_slepian_table;
+  }
 
 private:
   ///
@@ -121,38 +173,66 @@ private:
   ///
   void evaluate_properties_of ();
 
+private:
   ///
   /// \brief Use method for decoding that is based on the
   /// [standard (or
   /// Slepian)array](https://en.wikipedia.org/wiki/Standard_array).
   ///
-  [[nodiscard]] std::optional<infoword>
-  decode_with_slepian (const codeword &cword) const;
+  [[nodiscard]] decoding_result decode_with_slepian (const codeword &cword);
 
   ///
   /// \brief Use method for decoding that is based on the
   /// [standard (or
   /// Slepian)array](https://en.wikipedia.org/wiki/Standard_array).
   ///
-  [[nodiscard]] std::optional<infoword>
-  decode_with_syndromes (const codeword &cword) const;
+  [[nodiscard]] decoding_result decode_with_syndromes (const codeword &cword);
 
   ///
   /// \brief Exhausts all valid codewords and stores them in \ref
-  /// m_cached_codewords.
+  /// m_lazy_codewords.
+  /// \note May get called by `evaluate_properties_of()` and
+  /// `prepare_slepian_table()`.
   ///
-  void prepare_codeword_cache ();
+  void prepare_codewords () const;
+
+  ///
+  /// \brief Creates the parity matrix of the linear code.
+  /// \note Called when trying to access the \ref parity_matrix member and it
+  /// has not been populated yet.
+  ///
+  void prepare_parity_matrix () const;
+
+  ///
+  /// \brief Creates the Slepian table that is used for decoding with \ref
+  /// decoding_strategy::SlepianTable.
+  /// \note Called when \ref decode<SlepianTable> is being performed and the
+  /// table has not been populated yet.
+  ///
+  void prepare_slepian_table () const;
 
 public:
   ///
   /// Operations
   ///
 
-  const std::optional<std::vector<codeword> > &
-  codewords () const noexcept
+  void
+  set_special_name (const std::string &t_special_name)
   {
-    return m_cached_codewords;
+    m_properties.special_name = t_special_name;
   }
+
+  ///
+  /// \brief Check whether a given codeword is in the code. That is equivalent,
+  /// to the fact that the vector is in the vector subspace that is this code.
+  ///
+  [[nodiscard]] bool contains (const codeword &cword) const;
+
+  ///
+  /// \brief Calculates the syndrome of a given codeword.
+  ///
+  [[nodiscard]] syndrome syndrome_of (const codeword &cword) const;
+
   ///
   /// \brief Encodes an information word by adding redundency bits.
   /// \return The encoded code word.
@@ -170,12 +250,19 @@ public:
   /// information word. The algorithm is based on maximum likelihood decoding.
   /// \tparam strategy The decoding strategy to be used.
   /// \param cword Any codeword \f$c \in C\f$.
-  /// \return Either the decoded \ref infoword, or an empty value.
+  /// \throws \ref linearcode_exception if it cannot be decoded in any way.
+  /// That could happen if the word size of the linear code's code words is
+  /// different then the input's size.
+  /// \return Either the decoded \ref
+  /// infoword, or an empty value.
   ///
   template <enum decoding_strategy Strategy = decoding_strategy::SlepyanTable>
-  [[nodiscard]] std::optional<infoword>
-  decode (const codeword &cword) const
+  [[nodiscard]] decoding_result
+  decode (const codeword &cword)
   {
+    // Safety: This invariant is established during instantiation.
+    assert (!m_generator.isZero ());
+
     using enum decoding_strategy;
     if constexpr (Strategy == SlepyanTable)
       return decode_with_slepian (cword);
@@ -205,9 +292,33 @@ private:
   ///
   properties_type m_properties;
 
-  std::optional<std::vector<codeword> > m_cached_codewords;
+  // TODO: Make these lazy_loaded<T, LoadFunc, Args ...>
+
+  ///
+  /// \brief All codewords that are part of the linear code. They are stored is
+  /// sorted order, relative to their order.
+  ///
+  mutable std::optional<std::vector<codeword> > m_lazy_codewords;
+  mutable std::optional<Eigen::MatrixXi> m_lazy_parity_matrix;
+  mutable std::optional<std::vector<coset> > m_lazy_slepian_table;
 };
 
 } // namespace patrick
+
+template <>
+struct fmt::formatter<patrick::linearcode::properties_type>
+    : fmt::formatter<std::string_view>
+{
+  template <typename FormatContext>
+  auto
+  format (const patrick::linearcode::properties_type &props,
+          FormatContext &ctx)
+  {
+    return format_to (
+        ctx.out (), "{} [{}, {}, {}] code: Detects {} and corrects {} errors.",
+        props.special_name, props.word_size, props.basis_size,
+        props.min_distance, props.max_errors_detect, props.max_errors_correct);
+  }
+};
 
 #endif // PATRICK_CORE_H_INCLUDED

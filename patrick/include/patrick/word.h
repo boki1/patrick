@@ -30,7 +30,12 @@ public:
 struct codeword_tag
 {
 };
+
 struct infoword_tag
+{
+};
+
+struct syndrome_tag
 {
 };
 
@@ -40,7 +45,11 @@ template <typename T> struct word
   /// Constructors
   ///
 
+  word () = default;
+
   explicit word (const Eigen::RowVectorXi &t_vec) : vec{ t_vec } {}
+
+  explicit word (Eigen::RowVectorXi &&t_vec) : vec{ std::move (t_vec) } {}
 
   ///
   /// \brief Construct a word from a different tag. This is the ctor used from
@@ -104,13 +113,47 @@ template <typename T> struct word
     return std::count (std::cbegin (vec), std::cend (vec), 1);
   }
 
+  [[nodiscard]] unsigned long long
+  to_ullong () const noexcept
+  {
+    auto result = 0ull;
+    for (decltype (vec.size ()) i = 0; i < vec.size (); ++i)
+      result |= vec (i) << i;
+    return result;
+  }
+
+  ///
+  /// Arithmetics
+  /// \note The operations are mod 2.
+  ///
+
+  template <typename U>
+  word<T>
+  operator+ (const word<U> &rhs) const
+  {
+    word<T> copy{ vec };
+    return word<T>{ copy.vec.operator+ (rhs.vec).unaryExpr (
+        [&] (const int x) { return x % 2; }) };
+  }
+
+  template <typename U>
+  word<T>
+  operator+= (const word<U> &rhs)
+  {
+    vec = vec.operator+ (rhs.vec).unaryExpr (
+        [&] (const int x) { return x % 2; });
+    return *this;
+  }
+
   Eigen::RowVectorXi vec;
 };
 
 } // namespace details
+// namespace details
 
 using codeword = details::word<details::codeword_tag>;
 using infoword = details::word<details::infoword_tag>;
+using syndrome = details::word<details::syndrome_tag>;
 
 } // namespace patrick
 
@@ -122,7 +165,7 @@ struct fmt::formatter<patrick::details::word<Tag> >
 
   template <typename FormatContext>
   auto
-  format (const word_type &w, FormatContext &ctx)
+  format (const word_type &w, FormatContext &ctx) const
   {
     std::string bitstr;
     bitstr.resize (w.vec.cols ());
