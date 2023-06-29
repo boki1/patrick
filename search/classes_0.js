@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['codeword_5ftag_20',['codeword_tag',['../structpatrick_1_1details_1_1codeword__tag.html',1,'patrick::details']]]
+  ['binary_5fsymm_5fchannel_43',['binary_symm_channel',['../classlivedemo_1_1binary__symm__channel.html',1,'livedemo']]]
 ];

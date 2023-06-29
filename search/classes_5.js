@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['word_26',['word',['../structpatrick_1_1details_1_1word.html',1,'patrick::details']]],
-  ['word_5fexception_27',['word_exception',['../classpatrick_1_1details_1_1word__exception.html',1,'patrick::details']]]
+  ['linearcode_54',['linearcode',['../classpatrick_1_1linearcode.html',1,'patrick']]],
+  ['linearcode_5fexception_55',['linearcode_exception',['../classpatrick_1_1linearcode__exception.html',1,'patrick']]],
+  ['lossless_5fchannel_56',['lossless_channel',['../classlivedemo_1_1lossless__channel.html',1,'livedemo']]]
 ];

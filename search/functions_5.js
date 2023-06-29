@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['properties_39',['properties',['../classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222',1,'patrick::linearcode']]]
+  ['generator_5fmatrix_77',['generator_matrix',['../classpatrick_1_1linearcode.html#a5b3cdecd5bb90b606748e2e9787acbfd',1,'patrick::linearcode']]]
 ];

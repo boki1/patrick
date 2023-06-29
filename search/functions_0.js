@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['codewords_30',['codewords',['../classpatrick_1_1linearcode.html#a7ee7dc5daeb7403f55c25a01a3638ee2',1,'patrick::linearcode']]]
+  ['binary_5fentropy_5ffunction_67',['binary_entropy_function',['../classlivedemo_1_1binary__symm__channel.html#a55c2384c5049a62de0b83ee89438e306',1,'livedemo::binary_symm_channel']]],
+  ['binary_5fsymm_5fchannel_68',['binary_symm_channel',['../classlivedemo_1_1binary__symm__channel.html#aabc12e845fe040b69e3dd02795d5d6b0',1,'livedemo::binary_symm_channel']]]
 ];

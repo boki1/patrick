@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infoword_5ftag_22',['infoword_tag',['../structpatrick_1_1details_1_1infoword__tag.html',1,'patrick::details']]]
+  ['decoding_5fresult_50',['decoding_result',['../structpatrick_1_1linearcode_1_1decoding__result.html',1,'patrick::linearcode']]]
 ];

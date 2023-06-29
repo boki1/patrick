@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['decode_31',['decode',['../classpatrick_1_1linearcode.html#a96fc72a40099d7f7b288df980d9d7489',1,'patrick::linearcode']]],
-  ['dual_32',['dual',['../classpatrick_1_1linearcode.html#a197f3be37b7f8c9ebded76341ef1cac7',1,'patrick::linearcode']]]
+  ['capacity_69',['capacity',['../classlivedemo_1_1binary__symm__channel.html#aea76e1dee35994def4f8566af4ce60bc',1,'livedemo::binary_symm_channel']]],
+  ['contains_70',['contains',['../classpatrick_1_1linearcode.html#a31f4b4fea23786b51e94475d2761385e',1,'patrick::linearcode']]],
+  ['crossover_5fprobability_71',['crossover_probability',['../classlivedemo_1_1lossless__channel.html#ac9dfdbb71a781a69c2c6c9ce21d0b602',1,'livedemo::lossless_channel']]]
 ];
