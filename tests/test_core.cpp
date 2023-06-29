@@ -21,6 +21,18 @@ struct Hamming73Test : public ::testing::Test
     return G_;
   }();
 
+  // Parity matrix
+  static inline const Eigen::MatrixXi H = [] () {
+    Eigen::MatrixXi H{ 4, 7 };
+    // clang-format off
+      H << 0, 1, 1, 1, 0, 0, 0,
+           1, 0, 1, 0, 1, 0, 0,
+           1, 1, 0, 0, 0, 1, 0,
+           1, 1, 1, 0, 0, 0, 1;
+    // clang-format on
+    return H;
+  }();
+
   linearcode code = linearcode::from_generator (G);
 };
 
@@ -234,15 +246,58 @@ TEST_F (Hamming73Test, TestDecodingWithSlepianTable)
   EXPECT_EQ (fmt::format ("{}", c3 + d3.error), fmt::format ("{}", c3_));
 }
 
-  EXPECT_EQ (fmt::format ("{}", d2.error), "0111000");
-  EXPECT_EQ (fmt::format ("{}", d2.iword), "010");
-  const auto c2_ = code.encode (infoword{ "010" });
+TEST_F (Hamming73Test, TestDecodingWithSyndromes)
+{
+  using enum linearcode::decoding_strategy;
+
+  /// Decode a word which is part of the code.
+
+  infoword i1{ "101" };
+  codeword c1 = code.encode (i1);
+  const auto d1 = code.decode<Syndromes> (c1);
+  EXPECT_EQ (fmt::format ("{}", d1.error), "0000000");
+  EXPECT_EQ (fmt::format ("{}", d1.iword), "101");
+
+  /// Decode words which are not part of the code.
+
+  const codeword c2{ "0010011" };
+  const auto d2 = code.decode<Syndromes> (c2);
+  EXPECT_EQ (fmt::format ("{}", d2.error), "0001110");
+  EXPECT_EQ (fmt::format ("{}", d2.iword), "001");
+  const auto c2_ = code.encode (infoword{ "001" });
   EXPECT_EQ (fmt::format ("{}", c2 + d2.error), fmt::format ("{}", c2_));
 
   const codeword c3{ "1111111" };
-  const auto d3 = code.decode<SlepyanTable> (c3);
-  EXPECT_EQ (fmt::format ("{}", d3.error), "0111000");
-  EXPECT_EQ (fmt::format ("{}", d3.iword), "100");
-  const auto c3_ = code.encode (infoword{ "100" });
+  const auto d3 = code.decode<Syndromes> (c3);
+  EXPECT_EQ (fmt::format ("{}", d3.error), "0001110");
+  EXPECT_EQ (fmt::format ("{}", d3.iword), "111");
+  const auto c3_ = code.encode (infoword{ "111" });
   EXPECT_EQ (fmt::format ("{}", c3 + d3.error), fmt::format ("{}", c3_));
+}
+
+TEST_F (Hamming73Test, TestParityMatrix)
+{
+  const auto &parity_matrix = code.parity_matrix ();
+  EXPECT_EQ (parity_matrix, H);
+}
+
+TEST_F (Hamming73Test, TestSyndromesAndContains)
+{
+  assert (code.codewords ().has_value ());
+  for (const auto &c : *code.codewords ())
+    EXPECT_TRUE (code.contains (c));
+
+  codeword c1{ "0000001" };
+  auto s1 = code.syndrome_of (c1);
+  EXPECT_EQ (fmt::format ("{}", s1), "0001");
+  EXPECT_FALSE (code.contains (c1));
+
+  codeword c2{ "0110010" };
+  auto s2 = code.syndrome_of (c2);
+  EXPECT_EQ (fmt::format ("{}", s2), "0100");
+  EXPECT_FALSE (code.contains (c2));
+
+  codeword c3{ "0101011" };
+  auto s3 = code.syndrome_of (c3);
+  EXPECT_TRUE (code.contains (c3));
 }

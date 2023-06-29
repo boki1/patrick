@@ -298,11 +298,70 @@ void linearcode::prepare_slepian_table() const
   /// the codeword and get only the K rightmost of them. The rightmost are used because of the
   /// requirement that we made on the generator matrix, that it is in _standard form_ G = (E|A).
   return decoding_result{.iword = infoword{corrected_cword.vec.leftCols(k)}, .error = correction};
+void
+linearcode::prepare_syndrome_table () const
+{
+  const std::size_t n = properties ().word_size;
+  const std::size_t k = properties ().basis_size;
+  const std::size_t num_rows = 1 << (n - k);
+  const std::size_t num_words = 1 << n;
+
+  std::vector<bool> used (num_words, false);
+
+  auto out = fmt::output_file ("debug-syndromes-leader.log");
+  auto next_leader = [&] () {
+    std::size_t min_weight = n;
+    codeword min_c{ 0, n };
+    for (auto i = 0ull; i < num_words; ++i)
+      {
+        if (used[i])
+          continue;
+        codeword c{ i, n };
+        if (auto c_weight = c.weight (); c_weight < min_weight)
+          {
+            min_weight = c_weight;
+            min_c = c;
+          }
+      }
+
+    out.print ("next_leader -> {}\n", min_c);
+    return min_c;
+  };
+
+  syndrome_table_type table;
+  table.reserve (num_rows);
+
+  while (table.size () < num_rows)
+    {
+      auto leader = next_leader ();
+      used[leader.to_ullong ()] = true;
+      const auto syndr = syndrome_of (leader);
+      table.try_emplace (syndr, leader);
+    }
+
+  m_lazy_syndrome_table.emplace (std::move (table));
 }
 
-[[nodiscard]] linearcode::decoding_result linearcode::decode_with_syndromes(const codeword &cword)
+[[nodiscard]] linearcode::decoding_result
+linearcode::decode_with_syndromes (const codeword &cword)
 {
-  unimplemented (cword);
+  if (!m_lazy_syndrome_table)
+    prepare_syndrome_table ();
+
+  const std::size_t num_rows
+      = 1 << (properties ().word_size - properties ().basis_size);
+  /// Safety: That's a property of the syndrome table.
+  assert (m_lazy_syndrome_table->size () == num_rows);
+  const auto &syndrome_table = *m_lazy_syndrome_table;
+
+  const syndrome s = syndrome_of (cword);
+  const codeword error = syndrome_table.at (s);
+  const codeword corrected_cword = cword + error;
+
+  const std::size_t k = properties ().basis_size;
+  return decoding_result{ .iword
+                          = infoword{ corrected_cword.vec.leftCols (k) },
+                          .error = error };
 }
 
 } // namespace patrick
