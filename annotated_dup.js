@@ -22,5 +22,8 @@ var annotated_dup =
       ] ],
       [ "linearcode_exception", "classpatrick_1_1linearcode__exception.html", "classpatrick_1_1linearcode__exception" ],
       [ "linearcode", "classpatrick_1_1linearcode.html", "classpatrick_1_1linearcode" ]
+    ] ],
+    [ "std", null, [
+      [ "hash< patrick::details::word< Tag > >", "structstd_1_1hash_3_01patrick_1_1details_1_1word_3_01Tag_01_4_01_4.html", "structstd_1_1hash_3_01patrick_1_1details_1_1word_3_01Tag_01_4_01_4" ]
     ] ]
 ];

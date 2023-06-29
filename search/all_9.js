@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parity_5fmatrix_31',['parity_matrix',['../classpatrick_1_1linearcode.html#a159349a6b1edfa47581ae5abd1d68d01',1,'patrick::linearcode']]],
-  ['properties_32',['properties',['../classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222',1,'patrick::linearcode']]],
-  ['properties_5ftype_33',['properties_type',['../structpatrick_1_1linearcode_1_1properties__type.html',1,'patrick::linearcode']]]
+  ['operator_2b_29',['operator+',['../structpatrick_1_1details_1_1word.html#ad9b89f70451353bd72b5ae929ddecd4d',1,'patrick::details::word']]],
+  ['operator_3d_3d_30',['operator==',['../structpatrick_1_1details_1_1word.html#af0c5836d9cafed6b516b823453d5c3f3',1,'patrick::details::word']]],
+  ['rowvectorxi_31',['RowVectorXi',['../structpatrick_1_1details_1_1word.html#a4015d04302287441c5714f828cc6ea6d',1,'patrick::details::word']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['properties_5ftype_57',['properties_type',['../structpatrick_1_1linearcode_1_1properties__type.html',1,'patrick::linearcode']]]
+  ['linearcode_56',['linearcode',['../classpatrick_1_1linearcode.html',1,'patrick']]],
+  ['linearcode_5fexception_57',['linearcode_exception',['../classpatrick_1_1linearcode__exception.html',1,'patrick']]],
+  ['lossless_5fchannel_58',['lossless_channel',['../classlivedemo_1_1lossless__channel.html',1,'livedemo']]]
 ];
