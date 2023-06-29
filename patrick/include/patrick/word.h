@@ -89,7 +89,7 @@ template <typename T> struct word
     vec.resize (1, num_bits);
 
     for (std::size_t i = 0; i < num_bits; ++i)
-      vec (i) = (word_as_num & (1 << i)) > 0;
+      vec (num_bits - i - 1) = (word_as_num & (1 << i)) > 0;
   }
 
   ///
@@ -117,8 +117,8 @@ template <typename T> struct word
   to_ullong () const noexcept
   {
     auto result = 0ull;
-    for (decltype (vec.size ()) i = 0; i < vec.size (); ++i)
-      result |= vec (i) << i;
+    for (long i = 0; i < vec.size (); ++i)
+      result |= vec (vec.size () - i - 1) << i;
     return result;
   }
 
@@ -149,7 +149,6 @@ template <typename T> struct word
 };
 
 } // namespace details
-// namespace details
 
 using codeword = details::word<details::codeword_tag>;
 using infoword = details::word<details::infoword_tag>;

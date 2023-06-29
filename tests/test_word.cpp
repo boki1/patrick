@@ -46,3 +46,35 @@ TEST (TestPatrick, TestWordConstruction)
   static_assert (!equality_comparable<codeword, infoword>,
                  "codeword is convertible to infoword");
 }
+
+TEST (TestPatrick, TestWordInt)
+{
+  std::vector<codeword> expected;
+  expected.emplace_back ("0000");
+  expected.emplace_back ("0001");
+  expected.emplace_back ("0010");
+  expected.emplace_back ("0011");
+  expected.emplace_back ("0100");
+  expected.emplace_back ("0101");
+  expected.emplace_back ("0110");
+  expected.emplace_back ("0111");
+  expected.emplace_back ("1000");
+  expected.emplace_back ("1001");
+  expected.emplace_back ("1010");
+  expected.emplace_back ("1011");
+  expected.emplace_back ("1100");
+  expected.emplace_back ("1101");
+  expected.emplace_back ("1110");
+  expected.emplace_back ("1111");
+
+  std::vector<codeword> actual;
+  actual.reserve (16);
+  for (unsigned i = 0; i < 16; ++i)
+    actual.emplace_back (i, 4);
+
+  for (unsigned i = 0; i < 16; ++i)
+    EXPECT_EQ (i, actual[i].to_ullong ());
+
+  for (int i = 0; i < 16; ++i)
+    EXPECT_EQ (fmt::format ("{}", expected[i]), fmt::format ("{}", actual[i]));
+}

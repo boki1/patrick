@@ -221,6 +221,19 @@ TEST_F (Hamming73Test, TestDecodingWithSlepianTable)
 
   const codeword c2{ "0010011" };
   const auto d2 = code.decode<SlepyanTable> (c2);
+  EXPECT_EQ (fmt::format ("{}", d2.error), "0001110");
+  EXPECT_EQ (fmt::format ("{}", d2.iword), "001");
+  const auto c2_ = code.encode (infoword{ "001" });
+  EXPECT_EQ (fmt::format ("{}", c2 + d2.error), fmt::format ("{}", c2_));
+
+  const codeword c3{ "1111111" };
+  const auto d3 = code.decode<SlepyanTable> (c3);
+  EXPECT_EQ (fmt::format ("{}", d3.error), "0001110");
+  EXPECT_EQ (fmt::format ("{}", d3.iword), "111");
+  const auto c3_ = code.encode (infoword{ "111" });
+  EXPECT_EQ (fmt::format ("{}", c3 + d3.error), fmt::format ("{}", c3_));
+}
+
   EXPECT_EQ (fmt::format ("{}", d2.error), "0111000");
   EXPECT_EQ (fmt::format ("{}", d2.iword), "010");
   const auto c2_ = code.encode (infoword{ "010" });
