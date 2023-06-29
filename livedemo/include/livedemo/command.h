@@ -33,7 +33,7 @@ public:
 
 class command_line
 {
-  static constexpr inline std::string prompt = "> ";
+  static const inline std::string prompt = "> ";
 
 public:
   command_line (const std::string &greeting, std::ostream &os = std::cout,
