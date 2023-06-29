@@ -175,4 +175,20 @@ struct fmt::formatter<patrick::details::word<Tag> >
   }
 };
 
+namespace std
+{
+
+template <typename Tag> struct hash<patrick::details::word<Tag> >
+{
+  using word_type = patrick::details::word<Tag>;
+
+  size_t
+  operator() (const word_type &w) const
+  {
+    return hash<unsigned long long>{}(w.to_ullong ());
+  }
+};
+
+} // namespace std
+
 #endif // PATRICK_WORD_H_INCLUDED

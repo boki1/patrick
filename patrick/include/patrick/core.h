@@ -7,6 +7,7 @@
 #include <optional>
 #include <stdexcept>
 #include <string>
+#include <unordered_map>
 #include <utility>
 
 #include <Eigen/Dense>
@@ -71,6 +72,8 @@ public:
     infoword iword;
     codeword error;
   };
+
+  using syndrome_table_type = std::unordered_map<syndrome, codeword>;
 
   ///
   /// Constructors
@@ -165,6 +168,16 @@ public:
     return m_lazy_slepian_table;
   }
 
+  const std::optional<syndrome_table_type> &
+  syndrome_table () const noexcept
+  {
+    if (!m_lazy_syndrome_table.has_value ())
+      prepare_syndrome_table ();
+    // We either had it before or we just evaluated it.
+    assert (m_lazy_syndrome_table);
+    return m_lazy_syndrome_table;
+  }
+
 private:
   ///
   /// \param generator_matrix Representation of the linear code that is being
@@ -210,6 +223,8 @@ private:
   /// table has not been populated yet.
   ///
   void prepare_slepian_table () const;
+
+  void prepare_syndrome_table () const;
 
 public:
   ///
@@ -301,6 +316,7 @@ private:
   mutable std::optional<std::vector<codeword> > m_lazy_codewords;
   mutable std::optional<Eigen::MatrixXi> m_lazy_parity_matrix;
   mutable std::optional<std::vector<coset> > m_lazy_slepian_table;
+  mutable std::optional<syndrome_table_type> m_lazy_syndrome_table;
 };
 
 } // namespace patrick
