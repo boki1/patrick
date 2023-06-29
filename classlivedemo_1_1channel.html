@@ -109,8 +109,6 @@ $(document).ready(function(){initNavTree('classlivedemo_1_1channel.html',''); in
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlivedemo_1_1channel-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">livedemo::channel Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -131,25 +129,6 @@ Inheritance diagram for livedemo::channel:</div>
 <area href="classlivedemo_1_1lossless__channel.html" title="Channel which introduces no noise. Of course, such doesn&#39;t actually exist but is useful for debugging..." alt="livedemo::lossless_channel" shape="rect" coords="204,56,398,80"/>
   </map>
 </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa0d5438cc447682ab9238deb19c5345a"><td class="memItemLeft" align="right" valign="top"><a id="aa0d5438cc447682ab9238deb19c5345a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>infoword_type</b> = <a class="el" href="structpatrick_1_1details_1_1word.html">patrick::infoword</a></td></tr>
-<tr class="separator:aa0d5438cc447682ab9238deb19c5345a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affb90cc5a6effa86c7480159e5271dec"><td class="memItemLeft" align="right" valign="top"><a id="affb90cc5a6effa86c7480159e5271dec"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>codeword_type</b> = <a class="el" href="structpatrick_1_1details_1_1word.html">patrick::codeword</a></td></tr>
-<tr class="separator:affb90cc5a6effa86c7480159e5271dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab927debaaf648d3e64d5731a032a79bb"><td class="memItemLeft" align="right" valign="top"><a id="ab927debaaf648d3e64d5731a032a79bb"></a>
-virtual std::optional&lt; <a class="el" href="structpatrick_1_1linearcode_1_1decoding__result.html">patrick::linearcode::decoding_result</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transfer</b> (const <a class="el" href="structpatrick_1_1details_1_1word.html">infoword_type</a> &amp;sent, <a class="el" href="classpatrick_1_1linearcode.html">patrick::linearcode</a> &amp;code)=0</td></tr>
-<tr class="separator:ab927debaaf648d3e64d5731a032a79bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a557d6918228da9e627d2d84efbd810ef"><td class="memItemLeft" align="right" valign="top"><a id="a557d6918228da9e627d2d84efbd810ef"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>crossover_probability</b> () const noexcept=0</td></tr>
-<tr class="separator:a557d6918228da9e627d2d84efbd810ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for channel types that may or may not ever exist. Its only capability is to send information and has the property called <em>crossover</em> probability which is the probability of any single bit that is transfferd being flipped. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>

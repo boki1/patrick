@@ -110,9 +110,10 @@ $(document).ready(function(){initNavTree('classpatrick_1_1linearcode.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classpatrick_1_1linearcode-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">patrick::linearcode Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -134,16 +135,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpatrick_1_1linearcode_1_1properties__type.html">properties_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aad9d3a7148c15f68af945456f41158e4"><td class="memItemLeft" align="right" valign="top"><a id="aad9d3a7148c15f68af945456f41158e4"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>decoding_strategy</b> { <b>SlepyanTable</b>
-, <b>Syndromes</b>
- }</td></tr>
-<tr class="separator:aad9d3a7148c15f68af945456f41158e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa895b3e88e27f3e96e8508085ae0203e"><td class="memItemLeft" align="right" valign="top"><a id="aa895b3e88e27f3e96e8508085ae0203e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>syndrome_table_type</b> = std::unordered_map&lt; <a class="el" href="structpatrick_1_1details_1_1word.html">syndrome</a>, <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &gt;</td></tr>
-<tr class="separator:aa895b3e88e27f3e96e8508085ae0203e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a000e7cb18eb57db7ccd768b3509bd222"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structpatrick_1_1linearcode_1_1properties__type.html">properties_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a000e7cb18eb57db7ccd768b3509bd222">properties</a> () const &amp;noexcept</td></tr>
@@ -156,15 +147,6 @@ const Eigen::MatrixXi &amp;&#160;</td><td class="memItemRight" valign="bottom"><
 const Eigen::MatrixXi &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a5b3cdecd5bb90b606748e2e9787acbfd">generator_matrix</a> () const</td></tr>
 <tr class="memdesc:a5b3cdecd5bb90b606748e2e9787acbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the parity matrix for this code. <br /></td></tr>
 <tr class="separator:a5b3cdecd5bb90b606748e2e9787acbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee7dc5daeb7403f55c25a01a3638ee2"><td class="memItemLeft" align="right" valign="top"><a id="a7ee7dc5daeb7403f55c25a01a3638ee2"></a>
-const std::optional&lt; std::vector&lt; <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>codewords</b> () const noexcept</td></tr>
-<tr class="separator:a7ee7dc5daeb7403f55c25a01a3638ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec7b9ea8da16e33106882b11b6345933"><td class="memItemLeft" align="right" valign="top"><a id="aec7b9ea8da16e33106882b11b6345933"></a>
-const std::optional&lt; std::vector&lt; <a class="el" href="structpatrick_1_1linearcode_1_1coset.html">coset</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>slepian_table</b> () const noexcept</td></tr>
-<tr class="separator:aec7b9ea8da16e33106882b11b6345933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13322dc26c58af04414f417d49d1a788"><td class="memItemLeft" align="right" valign="top"><a id="a13322dc26c58af04414f417d49d1a788"></a>
-const std::optional&lt; syndrome_table_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>syndrome_table</b> () const noexcept</td></tr>
-<tr class="separator:a13322dc26c58af04414f417d49d1a788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f3dc2beedd1318d3f27571b05adfd03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a8f3dc2beedd1318d3f27571b05adfd03">set_special_name</a> (const std::string &amp;t_special_name)</td></tr>
 <tr class="separator:a8f3dc2beedd1318d3f27571b05adfd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31f4b4fea23786b51e94475d2761385e"><td class="memItemLeft" align="right" valign="top"><a id="a31f4b4fea23786b51e94475d2761385e"></a>
@@ -191,11 +173,85 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a8f3921778ad5dd63ffbc0f092ddc4fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a43f6744155f71c4ad44263bc6161ab"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a1a43f6744155f71c4ad44263bc6161ab">from_dual</a> (const <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> &amp;code)</td></tr>
 <tr class="separator:a1a43f6744155f71c4ad44263bc6161ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9f66150ee8385a1d51b7b9a10b6efe80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a9f66150ee8385a1d51b7b9a10b6efe80">linearcode</a> (const Eigen::MatrixXi &amp;<a class="el" href="classpatrick_1_1linearcode.html#a5b3cdecd5bb90b606748e2e9787acbfd">generator_matrix</a>)</td></tr>
+<tr class="memdesc:a9f66150ee8385a1d51b7b9a10b6efe80"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor should remain private, since the internal representation of the linear code is a <em>secret</em> :D. Anyways, both the parity equations and the generator are actually matrices, so for API clarity I think that the most suitable way for creating instances is my using the named ctors <em>from_*</em>().  <a href="classpatrick_1_1linearcode.html#a9f66150ee8385a1d51b7b9a10b6efe80">More...</a><br /></td></tr>
+<tr class="separator:a9f66150ee8385a1d51b7b9a10b6efe80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8e4e0a3dca00a2ab5a983d1afbc9b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a4b8e4e0a3dca00a2ab5a983d1afbc9b0">evaluate_properties_of</a> ()</td></tr>
+<tr class="separator:a4b8e4e0a3dca00a2ab5a983d1afbc9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44d1f805828662a3ae7630d320caa147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpatrick_1_1linearcode_1_1decoding__result.html">decoding_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a44d1f805828662a3ae7630d320caa147">decode_with_slepian</a> (const <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &amp;cword)</td></tr>
+<tr class="memdesc:a44d1f805828662a3ae7630d320caa147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use method for decoding that is based on the <a href="https://en.wikipedia.org/wiki/Standard_array">standard (or Slepian)array</a>.  <a href="classpatrick_1_1linearcode.html#a44d1f805828662a3ae7630d320caa147">More...</a><br /></td></tr>
+<tr class="separator:a44d1f805828662a3ae7630d320caa147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14831c2586ae2a15d6f008f39e7680d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpatrick_1_1linearcode_1_1decoding__result.html">decoding_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#ae14831c2586ae2a15d6f008f39e7680d">decode_with_syndromes</a> (const <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &amp;cword)</td></tr>
+<tr class="memdesc:ae14831c2586ae2a15d6f008f39e7680d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use method for decoding that is based on the <a href="https://en.wikipedia.org/wiki/Standard_array">standard (or Slepian)array</a>.  <a href="classpatrick_1_1linearcode.html#ae14831c2586ae2a15d6f008f39e7680d">More...</a><br /></td></tr>
+<tr class="separator:ae14831c2586ae2a15d6f008f39e7680d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dd477777ed2364fc9c77d4f8d6b3c50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a4dd477777ed2364fc9c77d4f8d6b3c50">prepare_codewords</a> () const</td></tr>
+<tr class="memdesc:a4dd477777ed2364fc9c77d4f8d6b3c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exhausts all valid codewords and stores them in <a class="el" href="classpatrick_1_1linearcode.html#a7b7dd3610565c48d414c184f8504eb2e">m_lazy_codewords</a>.  <a href="classpatrick_1_1linearcode.html#a4dd477777ed2364fc9c77d4f8d6b3c50">More...</a><br /></td></tr>
+<tr class="separator:a4dd477777ed2364fc9c77d4f8d6b3c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955519161e56a1f8e23974e5e24c27e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a955519161e56a1f8e23974e5e24c27e3">prepare_parity_matrix</a> () const</td></tr>
+<tr class="memdesc:a955519161e56a1f8e23974e5e24c27e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the parity matrix of the linear code.  <a href="classpatrick_1_1linearcode.html#a955519161e56a1f8e23974e5e24c27e3">More...</a><br /></td></tr>
+<tr class="separator:a955519161e56a1f8e23974e5e24c27e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac072aec6036f42b1843b28e9dc68be5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#ac072aec6036f42b1843b28e9dc68be5e">prepare_slepian_table</a> () const</td></tr>
+<tr class="memdesc:ac072aec6036f42b1843b28e9dc68be5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the Slepian table that is used for decoding with decoding_strategy::SlepianTable.  <a href="classpatrick_1_1linearcode.html#ac072aec6036f42b1843b28e9dc68be5e">More...</a><br /></td></tr>
+<tr class="separator:ac072aec6036f42b1843b28e9dc68be5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a49e5d5f1ad903c20bce3e4232b184fe0"><td class="memItemLeft" align="right" valign="top"><a id="a49e5d5f1ad903c20bce3e4232b184fe0"></a>
+const Eigen::MatrixXi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a49e5d5f1ad903c20bce3e4232b184fe0">m_generator</a></td></tr>
+<tr class="memdesc:a49e5d5f1ad903c20bce3e4232b184fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal representation of a linear code is based on a generator matrix. <br /></td></tr>
+<tr class="separator:a49e5d5f1ad903c20bce3e4232b184fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7d8f9b9af12e238b639a64580d3915"><td class="memItemLeft" align="right" valign="top"><a id="acb7d8f9b9af12e238b639a64580d3915"></a>
+<a class="el" href="structpatrick_1_1linearcode_1_1properties__type.html">properties_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#acb7d8f9b9af12e238b639a64580d3915">m_properties</a></td></tr>
+<tr class="memdesc:acb7d8f9b9af12e238b639a64580d3915"><td class="mdescLeft">&#160;</td><td class="mdescRight">The basic properties of the linear code that is represented by the instance. <br /></td></tr>
+<tr class="separator:acb7d8f9b9af12e238b639a64580d3915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b7dd3610565c48d414c184f8504eb2e"><td class="memItemLeft" align="right" valign="top"><a id="a7b7dd3610565c48d414c184f8504eb2e"></a>
+std::optional&lt; std::vector&lt; <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpatrick_1_1linearcode.html#a7b7dd3610565c48d414c184f8504eb2e">m_lazy_codewords</a></td></tr>
+<tr class="memdesc:a7b7dd3610565c48d414c184f8504eb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">All codewords that are part of the linear code. They are stored is sorted order, relative to their order. <br /></td></tr>
+<tr class="separator:a7b7dd3610565c48d414c184f8504eb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a linear <img class="formulaInl" alt="$[n, k, d]$" src="form_0.png"/> code. </p>
 <p>Linear code <img class="formulaInl" alt="$C$" src="form_1.png"/> is usually defined as a subspace of the linear space <img class="formulaInl" alt="$F^{n}_{2}$" src="form_2.png"/>. If its dimension is <img class="formulaInl" alt="$k$" src="form_3.png"/>, then <img class="formulaInl" alt="$C$" src="form_1.png"/> is said to be a <img class="formulaInl" alt="$[n, k]$" src="form_4.png"/> code. The third parameter <img class="formulaInl" alt="$d$" src="form_5.png"/> denotes the minimum distance of the code. In the special case of linear codes, that is usually defined as the minimum weight of a non-zero vector of <img class="formulaInl" alt="$C$" src="form_1.png"/>. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9f66150ee8385a1d51b7b9a10b6efe80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f66150ee8385a1d51b7b9a10b6efe80">&#9670;&nbsp;</a></span>linearcode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">patrick::linearcode::linearcode </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXi &amp;&#160;</td>
+          <td class="paramname"><em>generator_matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This constructor should remain private, since the internal representation of the linear code is a <em>secret</em> :D. Anyways, both the parity equations and the generator are actually matrices, so for API clarity I think that the most suitable way for creating instances is my using the named ctors <em>from_*</em>(). </p>
+<p>Actual ctor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">generator_matrix</td><td>The linear code represented by a generator matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a71e581fe445e969374cca9170c586d2d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71e581fe445e969374cca9170c586d2d">&#9670;&nbsp;</a></span>decode()</h2>
 
@@ -245,6 +301,66 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 
 </div>
 </div>
+<a id="a44d1f805828662a3ae7630d320caa147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d1f805828662a3ae7630d320caa147">&#9670;&nbsp;</a></span>decode_with_slepian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpatrick_1_1linearcode_1_1decoding__result.html">linearcode::decoding_result</a> patrick::linearcode::decode_with_slepian </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &amp;&#160;</td>
+          <td class="paramname"><em>cword</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use method for decoding that is based on the <a href="https://en.wikipedia.org/wiki/Standard_array">standard (or Slepian)array</a>. </p>
+<p>Safety: That's a property of the Slepian table.</p>
+<p>Safety: cword is of size that may be part of the linear code subspace. The Slepian table contains all words that are part of <img class="formulaInl" alt="$F_{2}^{n}$" src="form_10.png"/>, so at some point the <code>find()</code> inside the loop body will reach it.</p>
+<p>The conversion from a codeword of size N to its infoword of size K is based on the fact that the encoding is systematic, meaning that the positions of the codeword which contain information are the same as kept the same as in the infoword. Therefore, we have to <em>cut</em> the codeword and get only the K rightmost of them. The rightmost are used because of the requirement that we made on the generator matrix, that it is in <em>standard form</em> G = (E|A).</p>
+
+</div>
+</div>
+<a id="ae14831c2586ae2a15d6f008f39e7680d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14831c2586ae2a15d6f008f39e7680d">&#9670;&nbsp;</a></span>decode_with_syndromes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structpatrick_1_1linearcode_1_1decoding__result.html">linearcode::decoding_result</a> patrick::linearcode::decode_with_syndromes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structpatrick_1_1details_1_1word.html">codeword</a> &amp;&#160;</td>
+          <td class="paramname"><em>cword</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use method for decoding that is based on the <a href="https://en.wikipedia.org/wiki/Standard_array">standard (or Slepian)array</a>. </p>
+<p>Safety: That's a property of the syndrome table.</p>
+
+</div>
+</div>
 <a id="ad5259bfcfdc2f31db87207061a01fc0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5259bfcfdc2f31db87207061a01fc0a">&#9670;&nbsp;</a></span>encode()</h2>
 
@@ -264,6 +380,39 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 <p>Encodes an information word by adding redundency bits. </p>
 <dl class="section return"><dt>Returns</dt><dd>The encoded code word.</dd></dl>
 <p>Operations </p>
+
+</div>
+</div>
+<a id="a4b8e4e0a3dca00a2ab5a983d1afbc9b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8e4e0a3dca00a2ab5a983d1afbc9b0">&#9670;&nbsp;</a></span>evaluate_properties_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void patrick::linearcode::evaluate_properties_of </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">generator_matrix</td><td>Representation of the linear code that is being inspected. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This is called in the ctor of <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a>.</dd></dl>
+<p>Operation helpers </p>
 
 </div>
 </div>
@@ -366,6 +515,99 @@ template&lt;enum decoding_strategy Strategy = decoding_strategy::SlepyanTable&gt
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Constructed <a class="el" href="classpatrick_1_1linearcode.html">linearcode</a> instance which is described by the provided equations.</dd></dl>
 <p>Constructors </p>
+
+</div>
+</div>
+<a id="a4dd477777ed2364fc9c77d4f8d6b3c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd477777ed2364fc9c77d4f8d6b3c50">&#9670;&nbsp;</a></span>prepare_codewords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void patrick::linearcode::prepare_codewords </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exhausts all valid codewords and stores them in <a class="el" href="classpatrick_1_1linearcode.html#a7b7dd3610565c48d414c184f8504eb2e">m_lazy_codewords</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>May get called by <code><a class="el" href="classpatrick_1_1linearcode.html#a4b8e4e0a3dca00a2ab5a983d1afbc9b0">evaluate_properties_of()</a></code> and <code><a class="el" href="classpatrick_1_1linearcode.html#ac072aec6036f42b1843b28e9dc68be5e" title="Creates the Slepian table that is used for decoding with decoding_strategy::SlepianTable.">prepare_slepian_table()</a></code>. </dd></dl>
+
+</div>
+</div>
+<a id="a955519161e56a1f8e23974e5e24c27e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955519161e56a1f8e23974e5e24c27e3">&#9670;&nbsp;</a></span>prepare_parity_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void patrick::linearcode::prepare_parity_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the parity matrix of the linear code. </p>
+<dl class="section note"><dt>Note</dt><dd>Called when trying to access the <a class="el" href="classpatrick_1_1linearcode.html#a159349a6b1edfa47581ae5abd1d68d01">parity_matrix</a> member and it has not been populated yet. </dd></dl>
+
+</div>
+</div>
+<a id="ac072aec6036f42b1843b28e9dc68be5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac072aec6036f42b1843b28e9dc68be5e">&#9670;&nbsp;</a></span>prepare_slepian_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void patrick::linearcode::prepare_slepian_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the Slepian table that is used for decoding with decoding_strategy::SlepianTable. </p>
+<p>Creates the Slepian table for this code.</p>
+<dl class="section note"><dt>Note</dt><dd>Called when <a class="el" href="classpatrick_1_1linearcode.html#a71e581fe445e969374cca9170c586d2d">decode&lt;SlepianTable&gt;</a> is being performed and the table has not been populated yet.</dd></dl>
+<p>Decoding</p>
+<p>The Slepian table is a rectangular table, whose rows are the different cosets of the code. The first column contains what is known as a coset leader - that is the element of a coset with minimal weight. The fundamental steps of the algorithm that produces this table are the following:</p><ol type="1">
+<li>For the first coset, put the codewords and set their leader as the null vector. We will call this set <img class="formulaInl" alt="$C$" src="form_1.png"/>.</li>
+<li>Out the remaining codewords, select the one with minimal weight and name it coset leader. We will call this vector <img class="formulaInl" alt="$e$" src="form_8.png"/>.</li>
+<li>Produce the next coset by successively adding the leader to each codeword, that is <img class="formulaInl" alt="$C' = C + e := \{ c + e | c \in C \}$" src="form_9.png"/>.</li>
+<li>If now the table contains of vectors of <img class="formulaInl" alt="$F_{2}^{n}$" src="form_10.png"/>, then the procedure is complete.</li>
+<li>Else, go to 2. </li>
+</ol>
 
 </div>
 </div>

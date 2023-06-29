@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['transfer_87',['transfer',['../classlivedemo_1_1binary__symm__channel.html#a036e8a47d17effb6161836e9f18b77ec',1,'livedemo::binary_symm_channel::transfer()'],['../classlivedemo_1_1lossless__channel.html#a2fa41bafde5efde6b9dfba38fa37efa5',1,'livedemo::lossless_channel::transfer()']]]
+  ['set_5fspecial_5fname_101',['set_special_name',['../classpatrick_1_1linearcode.html#a8f3dc2beedd1318d3f27571b05adfd03',1,'patrick::linearcode']]],
+  ['syndrome_5fof_102',['syndrome_of',['../classpatrick_1_1linearcode.html#afd2f35bfc9348a6963ff79b3073cb5e1',1,'patrick::linearcode']]]
 ];

@@ -110,7 +110,6 @@ $(document).ready(function(){initNavTree('classlivedemo_1_1command__line.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlivedemo_1_1command__line-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">livedemo::command_line Class Reference</div>  </div>
@@ -119,62 +118,10 @@ $(document).ready(function(){initNavTree('classlivedemo_1_1command__line.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:abfdacf2dc2ac1eb0e0fedfa36117646d"><td class="memItemLeft" align="right" valign="top"><a id="abfdacf2dc2ac1eb0e0fedfa36117646d"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>code_type</b> = <a class="el" href="classpatrick_1_1linearcode.html">patrick::linearcode</a></td></tr>
-<tr class="separator:abfdacf2dc2ac1eb0e0fedfa36117646d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a791293f820acba8dd5d040ed5e059eb8"><td class="memItemLeft" align="right" valign="top"><a id="a791293f820acba8dd5d040ed5e059eb8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>codeword_type</b> = <a class="el" href="structpatrick_1_1details_1_1word.html">patrick::codeword</a></td></tr>
-<tr class="separator:a791293f820acba8dd5d040ed5e059eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0fedfcc4120d3c64ed5a795eb4c92a4"><td class="memItemLeft" align="right" valign="top"><a id="ab0fedfcc4120d3c64ed5a795eb4c92a4"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>infoword_type</b> = <a class="el" href="structpatrick_1_1details_1_1word.html">patrick::infoword</a></td></tr>
-<tr class="separator:ab0fedfcc4120d3c64ed5a795eb4c92a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd437f73845c15f31c3711476b26b49"><td class="memItemLeft" align="right" valign="top"><a id="a5fd437f73845c15f31c3711476b26b49"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlivedemo_1_1command__line.html#a5fd437f73845c15f31c3711476b26b49">cmd_type</a> = bool(*)(<a class="el" href="classlivedemo_1_1command__line.html">command_line</a> &amp;)</td></tr>
 <tr class="memdesc:a5fd437f73845c15f31c3711476b26b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether to exit the command entering process. <br /></td></tr>
 <tr class="separator:a5fd437f73845c15f31c3711476b26b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aca5d89201abb9233ecdbb12b1b13c030"><td class="memItemLeft" align="right" valign="top"><a id="aca5d89201abb9233ecdbb12b1b13c030"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>command_line</b> (const std::string &amp;greeting, std::ostream &amp;os=std::cout, std::istream &amp;is=std::cin)</td></tr>
-<tr class="separator:aca5d89201abb9233ecdbb12b1b13c030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3d01cce9e1d412b144380d045006669"><td class="memItemLeft" align="right" valign="top"><a id="aa3d01cce9e1d412b144380d045006669"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_cmd</b> (const std::string &amp;cmd_name, <a class="el" href="classlivedemo_1_1command__line.html#a5fd437f73845c15f31c3711476b26b49">cmd_type</a> func)</td></tr>
-<tr class="separator:aa3d01cce9e1d412b144380d045006669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48623f8939718e3ffa47d2871ea18b66"><td class="memItemLeft" align="right" valign="top"><a id="a48623f8939718e3ffa47d2871ea18b66"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>perform_cmd</b> (const std::string &amp;cmd_name)</td></tr>
-<tr class="separator:a48623f8939718e3ffa47d2871ea18b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bdb21352df17518383292b1da7fc85b"><td class="memItemLeft" align="right" valign="top"><a id="a5bdb21352df17518383292b1da7fc85b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
-<tr class="separator:a5bdb21352df17518383292b1da7fc85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e69984ba310f50489e20077ea939a58"><td class="memItemLeft" align="right" valign="top"><a id="a8e69984ba310f50489e20077ea939a58"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>out</b> () &amp;noexcept</td></tr>
-<tr class="separator:a8e69984ba310f50489e20077ea939a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae080a9c5d1da3e6ce1091239d37a007f"><td class="memItemLeft" align="right" valign="top"><a id="ae080a9c5d1da3e6ce1091239d37a007f"></a>
-std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>in</b> () &amp;noexcept</td></tr>
-<tr class="separator:ae080a9c5d1da3e6ce1091239d37a007f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b23140a7bb7ad0ae98004194f8d7f83"><td class="memItemLeft" align="right" valign="top"><a id="a4b23140a7bb7ad0ae98004194f8d7f83"></a>
-<a class="el" href="classpatrick_1_1linearcode.html">code_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_code</b> () &amp;</td></tr>
-<tr class="separator:a4b23140a7bb7ad0ae98004194f8d7f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee7119b3d07d4a309c2c94eb387b73dc"><td class="memItemLeft" align="right" valign="top"><a id="aee7119b3d07d4a309c2c94eb387b73dc"></a>
-<a class="el" href="classlivedemo_1_1channel.html">channel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_channel</b> () &amp;</td></tr>
-<tr class="separator:aee7119b3d07d4a309c2c94eb387b73dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cc6289e1085f875169f96ba102eb6eb"><td class="memItemLeft" align="right" valign="top"><a id="a6cc6289e1085f875169f96ba102eb6eb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_code</b> () const noexcept</td></tr>
-<tr class="separator:a6cc6289e1085f875169f96ba102eb6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4961340dd6742b996fca9b96c2e1be88"><td class="memItemLeft" align="right" valign="top"><a id="a4961340dd6742b996fca9b96c2e1be88"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_channel</b> () const noexcept</td></tr>
-<tr class="separator:a4961340dd6742b996fca9b96c2e1be88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8d72e27466480f7560eb373e7039ac"><td class="memItemLeft" align="right" valign="top"><a id="a2a8d72e27466480f7560eb373e7039ac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_code</b> (<a class="el" href="classpatrick_1_1linearcode.html">code_type</a> c)</td></tr>
-<tr class="separator:a2a8d72e27466480f7560eb373e7039ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1d92cbc5c530899cb4886b35b3324a2"><td class="memItemLeft" align="right" valign="top"><a id="af1d92cbc5c530899cb4886b35b3324a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unset_code</b> ()</td></tr>
-<tr class="separator:af1d92cbc5c530899cb4886b35b3324a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28bc7d9cc4e765fde9268af973ddaecb"><td class="memTemplParams" colspan="2"><a id="a28bc7d9cc4e765fde9268af973ddaecb"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a28bc7d9cc4e765fde9268af973ddaecb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>set_channel</b> (T &amp;&amp;<a class="el" href="classlivedemo_1_1channel.html">channel</a>)</td></tr>
-<tr class="separator:a28bc7d9cc4e765fde9268af973ddaecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>livedemo/include/livedemo/<a class="el" href="command_8h_source.html">command.h</a></li>
